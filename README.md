@@ -192,11 +192,3 @@ resource "aws_vpc" "main" {
 
 **Zaeem Attique Ashar**  
 Cloud Intern
-
-## License
-
-This project is available for educational and demonstration purposes.
-
----
-
-**Note**: Replace placeholder values like `<repository-url>`, `<account-id>`, and `<your-repo-name>` with your actual values before deployment.
