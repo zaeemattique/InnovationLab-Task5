@@ -13,6 +13,8 @@ This project implements a production-ready, highly available architecture with t
 - **Security Groups** - Layered security for ALB, ECS tasks, and EFS access
 - **IAM Roles** - Proper permissions for ECS task execution and EFS access
 
+![alt](https://raw.githubusercontent.com/zaeemattique/InnovationLab-Task5/refs/heads/main/Task5%20Architecture.png)
+
 ## Features
 
 -  High availability across multiple availability zones (us-west-2a, us-west-2b)
