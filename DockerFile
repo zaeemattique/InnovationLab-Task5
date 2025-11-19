@@ -1,0 +1,38 @@
+FROM nginx:alpine
+
+# Remove default content
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy custom HTML files (if you have a directory with your website)
+# COPY ./website /usr/share/nginx/html
+
+# Create a simple custom page
+RUN echo "<!DOCTYPE html>" > /usr/share/nginx/html/index.html && \
+    echo "<html>" >> /usr/share/nginx/html/index.html && \
+    echo "<head>" >> /usr/share/nginx/html/index.html && \
+    echo "    <title>Task5 - Zaeem</title>" >> /usr/share/nginx/html/index.html && \
+    echo "    <style>" >> /usr/share/nginx/html/index.html && \
+    echo "        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }" >> /usr/share/nginx/html/index.html && \
+    echo "        h1 { color: #333; }" >> /usr/share/nginx/html/index.html && \
+    echo "    </style>" >> /usr/share/nginx/html/index.html && \
+    echo "</head>" >> /usr/share/nginx/html/index.html && \
+    echo "<body>" >> /usr/share/nginx/html/index.html && \
+    echo "    <h1>🚀 Task5 - ECS with Nginx</h1>" >> /usr/share/nginx/html/index.html && \
+    echo "    <p>Successfully deployed on ECS Fargate</p>" >> /usr/share/nginx/html/index.html && \
+    echo "    <p>Created by: Zaeem</p>" >> /usr/share/nginx/html/index.html && \
+    echo "    <p>Container ID: ${HOSTNAME}</p>" >> /usr/share/nginx/html/index.html && \
+    echo "</body>" >> /usr/share/nginx/html/index.html && \
+    echo "</html>" >> /usr/share/nginx/html/index.html
+
+# Copy custom nginx config (if needed)
+# COPY nginx-custom.conf /etc/nginx/nginx.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Health check (optional)
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/ || exit 1
+
+# Start Nginx in foreground
+CMD ["nginx", "-g", "daemon off;"]

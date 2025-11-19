@@ -1,0 +1,15 @@
+vpc_cidr = "10.0.0.0/16"
+subnet_cidr_A = "10.0.1.0/24"
+subnet_cidr_B = "10.0.2.0/24"
+load_balancer_type = "application"
+lb_listener_port = 80
+lb_listener_protocol = "HTTP"
+tg_target_type = "ip"
+ecr_image_tag_mutability = "MUTABLE"
+task_desired_count = 2
+container_name = "NginxServer"
+posix_usr_uid = 1000
+posix_usr_guid = 1000
+owner_gid = 1000
+owner_uid = 1000
+efs_file_permission = 0755
